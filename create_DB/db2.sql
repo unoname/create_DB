@@ -37,10 +37,6 @@ CREATE TABLE film (
 	installation INTEGER REFERENCES person_id
 );
 
-CREATE TABLE actor (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-);
 
 CREATE TABLE genre (
     id SERIAL PRIMARY KEY,
@@ -71,10 +67,10 @@ CREATE TABLE film_viewers (
 );
 
 
-CREATE TABLE film_actor (
+CREATE TABLE film_person (
     film_id INTEGER REFERENCES film(id),
-    actor_id INTEGER REFERENCES actor(id),
+    person_id INTEGER REFERENCES person(id),
     role VARCHAR(255),
-    PRIMARY KEY(film_id, actor_id, role)
+    PRIMARY KEY(film_id, person_id, role)
 );
 
